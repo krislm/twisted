@@ -8,6 +8,7 @@ class Echo(protocol.Protocol):
 
     def connectionMade(self):
         self.factory.numConnections += 1
+        self.users.append(self.factory.numConnections)
 
     def dataReceived(self, data):
         print self.factory.numConnections
