@@ -73,7 +73,7 @@ class TwistedClientApp(App):
 
     def on_connection(self, connection):
         self.connection = connection
-        self.connection.write(str(self.username+"#Connect##"))
+        self.connection.write(str(self.username+"#Connect$"))
         self.print_message("connected successfully!--from client")
 
     def send_message(self, *args):
