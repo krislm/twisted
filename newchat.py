@@ -12,6 +12,7 @@ class Echo(protocol.Protocol):
 
     def dataReceived(self, data):
         print self.factory.numConnections
+        print data
         self.transport.write(data)
 
     def connectionLost(self, reason):

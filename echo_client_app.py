@@ -38,8 +38,11 @@ from kivy.uix.boxlayout import BoxLayout
 class TwistedClientApp(App):
     connection = None
 
+
+
     def build(self):
         root = self.setup_gui()
+        self.username = ""
         #self.connect_to_server()
         return root
 
@@ -65,15 +68,18 @@ class TwistedClientApp(App):
         #def connect_to_server(self):
             #print self.n.text
         reactor.connectTCP('localhost', 8000, EchoFactory(self))
+        self.username = self.n.text
+        print self.username
 
     def on_connection(self, connection):
-        self.print_message("connected successfully!")
         self.connection = connection
+        self.connection.write(str(self.username+"#Connect##"))
+        self.print_message("connected successfully!--from client")
 
     def send_message(self, *args):
         msg = self.textbox.text
         if msg and self.connection:
-            self.connection.write(str(self.textbox.text))
+            self.connection.write(str(self.username+"#"+self.textbox.text))
             self.textbox.text = ""
             self.label.text += "You wrote: "+"'"+msg+"'"+"\n"
 
