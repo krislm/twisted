@@ -2,26 +2,26 @@ from twisted.internet.protocol import Factory
 from twisted.internet import protocol, reactor
 from twisted.protocols.basic import LineReceiver
 
-class Echo(protocol.Protocol, LineReceiver):
+class Echo(protocol.Protocol):#, LineReceiver):
     users = []
     def __init__(self, factory):
         self.factory = factory
-        self.name = None
-        self.state = "REGISTER"
+        #self.name = None
+        #self.state = "REGISTER"
 
     def connectionMade(self):
         self.factory.numConnections += 1
 
 
-    def handle_REGISTER(self, name):
-        if name in self.factory.users:
-            self.sendLine("Name taken, please choose another.")
-            return
-        self.sendLine("Welcome, %s!" % (name,))
-        self.broadcastMessage("%s has joined the channel." % (name,))
-        self.name = name
-        self.factory.users[name] = self
-        self.state = "CHAT"
+    #def handle_REGISTER(self, name):
+    #    if name in self.factory.users:
+    #        self.sendLine("Name taken, please choose another.")
+    #        return
+    #    self.sendLine("Welcome, %s!" % (name,))
+    #    self.broadcastMessage("%s has joined the channel." % (name,))
+    #    self.name = name
+    #    self.factory.users[name] = self
+    #    self.state = "CHAT"
 
     def dataReceived(self, data):
         print self.factory.numConnections
@@ -41,8 +41,8 @@ class Echo(protocol.Protocol, LineReceiver):
 class EchoFactory(protocol.Factory):
     numConnections = 0
 
-    def __init__(self):
-        self.users = {}
+#    def __init__(self):
+#        self.users = {}
 
     def buildProtocol(self, addr):
         return Echo(self)

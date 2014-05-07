@@ -31,6 +31,7 @@ from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.selectableview import SelectableView
 
 # A simple kivy App, with a textbox to enter messages, and
 # a large label to display all the messages received from
@@ -47,20 +48,20 @@ class TwistedClientApp(App):
         return root
 
     def setup_gui(self):
-        self.n = TextInput(size_hint_y=0.1, multiline=False, text="your name here...")
-        self.b = Button(size_hint_y=0.1, text="Connect", on_press=self.svr_con)
+        self.usern = TextInput(size_hint_y=0.1, multiline=False, text="your name here...")
+        self.connectbutton = Button(size_hint_y=0.1, text="Connect", on_press=self.svr_con)
         self.textbox = TextInput(size_hint_y=.1, multiline=False)
         self.textbox.bind(on_text_validate=self.send_message)
         self.label = Label(text='connecting...\n')
         self.layout = BoxLayout(orientation='vertical')
         self.scroll = ScrollView(do_scroll_y=True, do_scroll_x=False, size=(250, 320))
-        self.scrollusers = ScrollView(do_scroll_y=True, do_scroll_x=False, size=(250, 320))
+        #self.onlineusers = SelectableView
         self.scroll.add_widget(self.label)
-        self.layout.add_widget(self.n)
-        self.layout.add_widget(self.b)
+        self.layout.add_widget(self.usern)
+        self.layout.add_widget(self.connectbutton)
         #self.layout.add_widget(self.label)
         self.layout.add_widget(self.scroll)
-        self.layout.add_widget(self.scrollusers)
+        #self.layout.add_widget(self.onlineusers)
         self.layout.add_widget(self.textbox)
         return self.layout
 
@@ -68,7 +69,7 @@ class TwistedClientApp(App):
         #def connect_to_server(self):
             #print self.n.text
         reactor.connectTCP('localhost', 8000, EchoFactory(self))
-        self.username = self.n.text
+        self.username = self.usern.text
         print self.username
 
     def on_connection(self, connection):
