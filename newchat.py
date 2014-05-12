@@ -45,14 +45,12 @@ class Echo(protocol.Protocol):#, LineReceiver):
         for userkey in self.connections:
             tempuser = ""
             if self.connections[userkey] == self.transport:
-                print 'in if'
                 tempuser=userkey
-
-
         del self.connections[tempuser]
         self.users.remove(tempuser)
-        print self.connections
-        print self.users
+        for userkey in self.connections.keys():
+                self.transport = self.connections[userkey]
+                self.transport.write("users$#"+str(self.users))
 
 
 class EchoFactory(protocol.Factory):

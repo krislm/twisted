@@ -95,10 +95,13 @@ class TwistedClientApp(App):
         print(username)
         message = str(msg).split("#")[1]
         print message + " before"
-        message[2:-2]
+        message[1:-1]
+
+
         print message + " after"
         if username == "users$":
             users = message.split(",")
+            self.label2.text = "Users:\n"
             for current_user in users:
                 print current_user
                 self.label2.text += current_user + "\n"
