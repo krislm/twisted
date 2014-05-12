@@ -33,7 +33,7 @@ class Echo(protocol.Protocol):#, LineReceiver):
             print "user added"
             print self.users
         self.transport.write(data)
-        self.transport.write("users$#"+str(self.users))
+        self.transport.write("\nusers$#"+str(self.users))
 
     def connectionLost(self, reason):
         self.factory.numConnections -= 1
