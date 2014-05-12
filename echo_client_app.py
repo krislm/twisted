@@ -95,6 +95,8 @@ class TwistedClientApp(App):
             self.textbox.text = ""
             self.label.text += "Me: "+"'"+msg[1:-1]+"'"+"\n"
 
+
+
     def print_message(self, msg):
         print(msg)
         username = str(msg).split("#")[0]
@@ -111,6 +113,12 @@ class TwistedClientApp(App):
                 self.label2.text += current_user[2:-1] + "\n"
                 spinnerlist.append(current_user[2:-1])
             self.spinner.values = spinnerlist
+            check = False
+            for name in users:
+                if name[2:-1] == self.spinner.text:
+                    check = True
+            if check == False:
+                self.spinner.text = "Choose user..."
         else:
             self.label.text += username + ": " + message + "\n"
 
