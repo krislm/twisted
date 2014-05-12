@@ -93,7 +93,7 @@ class TwistedClientApp(App):
         if msg and self.connection:
             self.connection.write(str(self.spinner.text+"#"+self.textbox.text))
             self.textbox.text = ""
-            self.label.text += "Me: "+"'"+msg[1:-1]+"'"+"\n"
+            self.label.text += "Me: "+msg+"\n"
 
 
 
