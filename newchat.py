@@ -3,35 +3,45 @@ from twisted.internet import protocol, reactor
 from twisted.protocols.basic import LineReceiver
 
 class Echo(protocol.Protocol):#, LineReceiver):
-    users = []
+    users = [] #List of users, which the server sends to the clients
+    connections = {} #dictionary of the TCP connections, with key = username
     def __init__(self, factory):
         self.factory = factory
-        #self.name = None
-        #self.state = "REGISTER"
 
     def connectionMade(self):
         self.factory.numConnections += 1
-
+        print self.factory.numConnections
 
     def dataReceived(self, data):
-        print self.factory.numConnections
+
         print data
         username = str(data).split("#")[0]
         message = str(data).split("#")[1]
+
         if username == "Connect$":
             self.users.append(message)
+            self.connections[message] = self.transport
+            print self.connections
             print "user added"
-            print self.users
-            self.transport.write("users$#"+str(self.users))
+
+            for userkey in self.connections.keys():
+                self.transport = self.connections[userkey]
+                self.transport.write("users$#"+str(self.users))
         else:
             #check for who to send to
-            self.transport.write(username + "#" + message)
+            for userkey in self.connections.keys():
+                if userkey == username:
+                    self.transport = self.connections[userkey]
+                    self.transport.write(username + "#" + message)
+
+            #self.transport.write(username + "#" + message)
 
 
 
 
     def connectionLost(self, reason):
         self.factory.numConnections -= 1
+        print self.factory.numConnections
 
 class EchoFactory(protocol.Factory):
     numConnections = 0
