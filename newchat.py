@@ -11,6 +11,8 @@ class Echo(protocol.Protocol):#, LineReceiver):
     def connectionMade(self):
         self.factory.numConnections += 1
         print self.factory.numConnections
+        print self.connections
+        print self.users
 
     def dataReceived(self, data):
 
@@ -37,11 +39,21 @@ class Echo(protocol.Protocol):#, LineReceiver):
             #self.transport.write(username + "#" + message)
 
 
-
-
     def connectionLost(self, reason):
         self.factory.numConnections -= 1
         print self.factory.numConnections
+        for userkey in self.connections:
+            tempuser = ""
+            if self.connections[userkey] == self.transport:
+                print 'in if'
+                tempuser=userkey
+
+
+        del self.connections[tempuser]
+        self.users.remove(tempuser)
+        print self.connections
+        print self.users
+
 
 class EchoFactory(protocol.Factory):
     numConnections = 0
