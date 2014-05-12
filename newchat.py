@@ -24,6 +24,7 @@ class Echo(protocol.Protocol):#, LineReceiver):
             print self.users
             self.transport.write("users$#"+str(self.users))
         else:
+            #check for who to send to
             self.transport.write(username + "#" + message)
 
 

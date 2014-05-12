@@ -87,7 +87,7 @@ class TwistedClientApp(App):
         if msg and self.connection:
             self.connection.write(str(self.username+"#"+self.textbox.text))
             self.textbox.text = ""
-            #self.label.text += "Me: "+"'"+msg+"'"+"\n"
+            self.label.text += "Me: "+"'"+msg+"'"+"\n"
 
     def print_message(self, msg):
         print(msg)
