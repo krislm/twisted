@@ -32,6 +32,7 @@ from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.spinner import Spinner
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.selectableview import SelectableView
 
@@ -50,6 +51,9 @@ class TwistedClientApp(App):
         return root
 
     def setup_gui(self):
+
+        self.spinner = Spinner(text='Choose user...', values=(), size_hint=(None, None),
+                               size=(200, 30), pos_hint={'center_x': .5, 'center_y': .5})
         self.usern = TextInput(size_hint_y=0.1, multiline=False, text="your name here...")
         self.connectbutton = Button(size_hint_y=0.1, text="Connect", on_press=self.svr_con)
         self.textbox = TextInput(size_hint_y=.1, multiline=False)
@@ -66,7 +70,9 @@ class TwistedClientApp(App):
         self.layout.add_widget(self.connectbutton)
         self.layout.add_widget(self.scroll)
         self.layout.add_widget(self.scroll2)
+        self.layout.add_widget(self.spinner)
         self.layout.add_widget(self.textbox)
+
         return self.layout
 
     def svr_con(self, instance):
@@ -85,9 +91,9 @@ class TwistedClientApp(App):
     def send_message(self, *args):
         msg = self.textbox.text
         if msg and self.connection:
-            self.connection.write(str(self.username+"#"+self.textbox.text))
+            self.connection.write(str(self.spinner.text+"#"+self.textbox.text))
             self.textbox.text = ""
-            self.label.text += "Me: "+"'"+msg+"'"+"\n"
+            self.label.text += "Me: "+"'"+msg[1:-1]+"'"+"\n"
 
     def print_message(self, msg):
         print(msg)
@@ -99,9 +105,12 @@ class TwistedClientApp(App):
         if username == "users$":
             users = message.split(",")
             self.label2.text = "Users:\n"
+            spinnerlist = []
             for current_user in users:
                 print current_user
                 self.label2.text += current_user[2:-1] + "\n"
+                spinnerlist.append(current_user[2:-1])
+            self.spinner.values = spinnerlist
         else:
             self.label.text += username + ": " + message + "\n"
 
