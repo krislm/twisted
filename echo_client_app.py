@@ -2,6 +2,7 @@
 from kivy.support import install_twisted_reactor
 from kivy.uix.button import Button
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.relativelayout import RelativeLayout
 install_twisted_reactor()
 
 
@@ -31,6 +32,7 @@ from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.selectableview import SelectableView
 
 # A simple kivy App, with a textbox to enter messages, and
@@ -55,13 +57,12 @@ class TwistedClientApp(App):
         self.label = Label(text='connecting...\n')
         self.layout = BoxLayout(orientation='vertical')
         self.scroll = ScrollView(do_scroll_y=True, do_scroll_x=False, size=(250, 320))
-        #self.onlineusers = SelectableView
+        self.onlineusers = ScrollView(do_scroll=True)
         self.scroll.add_widget(self.label)
         self.layout.add_widget(self.usern)
         self.layout.add_widget(self.connectbutton)
-        #self.layout.add_widget(self.label)
         self.layout.add_widget(self.scroll)
-        #self.layout.add_widget(self.onlineusers)
+        self.layout.add_widget(self.onlineusers)
         self.layout.add_widget(self.textbox)
         return self.layout
 
@@ -87,6 +88,10 @@ class TwistedClientApp(App):
     def print_message(self, msg):
         self.label.text += msg + "\n"
 
+
+class User():
+    def __init__(self, name):
+        self.name = name
 
 if __name__ == '__main__':
     TwistedClientApp().run()
