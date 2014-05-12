@@ -28,7 +28,7 @@ class Echo(protocol.Protocol):#, LineReceiver):
 
             for userkey in self.connections.keys():
                 self.transport = self.connections[userkey]
-                self.transport.write("users$#"+str(self.users))
+                self.transport.write("users$#s"+str(self.users))
         else:
             #check for who to send to
             for userkey in self.connections.keys():
@@ -50,7 +50,7 @@ class Echo(protocol.Protocol):#, LineReceiver):
         self.users.remove(tempuser)
         for userkey in self.connections.keys():
                 self.transport = self.connections[userkey]
-                self.transport.write("users$#"+str(self.users))
+                self.transport.write("users$#s"+str(self.users))
 
 
 class EchoFactory(protocol.Factory):
