@@ -13,16 +13,6 @@ class Echo(protocol.Protocol):#, LineReceiver):
         self.factory.numConnections += 1
 
 
-    #def handle_REGISTER(self, name):
-    #    if name in self.factory.users:
-    #        self.sendLine("Name taken, please choose another.")
-    #        return
-    #    self.sendLine("Welcome, %s!" % (name,))
-    #    self.broadcastMessage("%s has joined the channel." % (name,))
-    #    self.name = name
-    #    self.factory.users[name] = self
-    #    self.state = "CHAT"
-
     def dataReceived(self, data):
         print self.factory.numConnections
         print data
@@ -32,8 +22,10 @@ class Echo(protocol.Protocol):#, LineReceiver):
             self.users.append(username)
             print "user added"
             print self.users
+            self.transport.write("\nusers$#"+str(self.users))
+
         self.transport.write(data)
-        self.transport.write("\nusers$#"+str(self.users))
+
 
     def connectionLost(self, reason):
         self.factory.numConnections -= 1

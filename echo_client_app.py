@@ -78,8 +78,8 @@ class TwistedClientApp(App):
 
     def on_connection(self, connection):
         self.connection = connection
-        self.connection.write(str(self.username+"#Connect$"))
-        self.print_message("connected successfully!--from client")
+        self.connection.write(str("Connect$#"+str(self.username)))
+        #self.print_message("connected successfully!--from client")
 
     def send_message(self, *args):
         msg = self.textbox.text
@@ -89,7 +89,18 @@ class TwistedClientApp(App):
             self.label.text += "You wrote: "+"'"+msg+"'"+"\n"
 
     def print_message(self, msg):
-        self.label.text += msg + "\n"
+        print(msg)
+        username = str(msg).split("#")[0]
+        print(username)
+        message = str(msg).split("#")[1]
+        print(message)
+        if username == "users$":
+            users = message.split(",")
+            for current_user in users:
+                print(current_user)
+                self.label2 += current_user + "\n"
+        else:
+            self.label.text += username + " said: " + message + "\n"
 
 
 class User():
