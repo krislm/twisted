@@ -18,13 +18,15 @@ class Echo(protocol.Protocol):#, LineReceiver):
         print data
         username = str(data).split("#")[0]
         message = str(data).split("#")[1]
-        if message == "Connect$":
-            self.users.append(username)
+        if username == "Connect$":
+            self.users.append(message)
             print "user added"
             print self.users
-            self.transport.write("\nusers$#"+str(self.users))
+            self.transport.write("users$#"+str(self.users))
+        else:
+            self.transport.write(username + "#" + message)
 
-        self.transport.write(data)
+
 
 
     def connectionLost(self, reason):
