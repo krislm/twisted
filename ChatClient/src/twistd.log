@@ -1,0 +1,104 @@
+2014-05-06 10:29:44+0200 [-] Log opened.
+2014-05-06 10:29:44+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:44+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:44+0200 [-] Site starting on 8087
+2014-05-06 10:29:44+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b955c68>
+2014-05-06 10:29:45+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:45+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b955c68>
+2014-05-06 10:29:46+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:46+0200 [-] Log opened.
+2014-05-06 10:29:46+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:46+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:46+0200 [-] Site starting on 8087
+2014-05-06 10:29:46+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b970cf8>
+2014-05-06 10:29:47+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:47+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b970cf8>
+2014-05-06 10:29:47+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:47+0200 [-] Log opened.
+2014-05-06 10:29:47+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:47+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:47+0200 [-] Site starting on 8087
+2014-05-06 10:29:47+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b95efc8>
+2014-05-06 10:29:48+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:48+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b95efc8>
+2014-05-06 10:29:48+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:48+0200 [-] Log opened.
+2014-05-06 10:29:48+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:48+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:48+0200 [-] Site starting on 8087
+2014-05-06 10:29:48+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b95f488>
+2014-05-06 10:29:48+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:48+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b95f488>
+2014-05-06 10:29:49+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:49+0200 [-] Log opened.
+2014-05-06 10:29:49+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:49+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:49+0200 [-] Site starting on 8087
+2014-05-06 10:29:49+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b97a200>
+2014-05-06 10:29:49+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:49+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b97a200>
+2014-05-06 10:29:50+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:50+0200 [-] Log opened.
+2014-05-06 10:29:50+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:50+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:50+0200 [-] Site starting on 8087
+2014-05-06 10:29:50+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b989878>
+2014-05-06 10:29:50+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:50+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b989878>
+2014-05-06 10:29:51+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:51+0200 [-] Log opened.
+2014-05-06 10:29:51+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:51+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:51+0200 [-] Site starting on 8087
+2014-05-06 10:29:51+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b983d88>
+2014-05-06 10:29:51+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:29:51+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x10b983d88>
+2014-05-06 10:29:52+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:29:52+0200 [-] Log opened.
+2014-05-06 10:29:52+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:29:52+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:29:52+0200 [-] Site starting on 8087
+2014-05-06 10:29:52+0200 [-] Starting factory <twisted.web.server.Site instance at 0x10b989dd0>
+2014-05-06 10:30:11+0200 [-] Log opened.
+2014-05-06 10:30:11+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:30:11+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:30:11+0200 [-] Site starting on 8087
+2014-05-06 10:30:11+0200 [-] Starting factory <twisted.web.server.Site instance at 0x11781ccf8>
+2014-05-06 10:30:11+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:30:11+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x11781ccf8>
+2014-05-06 10:30:12+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:30:12+0200 [-] Log opened.
+2014-05-06 10:30:12+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:30:12+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:30:12+0200 [-] Site starting on 8087
+2014-05-06 10:30:12+0200 [-] Starting factory <twisted.web.server.Site instance at 0x117837ea8>
+2014-05-06 10:30:12+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:30:12+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x117837ea8>
+2014-05-06 10:30:12+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:30:12+0200 [-] Log opened.
+2014-05-06 10:30:12+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:30:12+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:30:12+0200 [-] Site starting on 8087
+2014-05-06 10:30:12+0200 [-] Starting factory <twisted.web.server.Site instance at 0x11783f3f8>
+2014-05-06 10:30:12+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:30:12+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x11783f3f8>
+2014-05-06 10:30:12+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:30:12+0200 [-] Log opened.
+2014-05-06 10:30:12+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:30:12+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:30:12+0200 [-] Site starting on 8087
+2014-05-06 10:30:12+0200 [-] Starting factory <twisted.web.server.Site instance at 0x11783ac68>
+2014-05-06 10:30:12+0200 [-] (TCP Port 8087 Closed)
+2014-05-06 10:30:12+0200 [-] Stopping factory <twisted.web.server.Site instance at 0x11783ac68>
+2014-05-06 10:30:13+0200 [-] Unable to write to plugin cache /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/twisted/plugins/dropin.cache: error number 13
+2014-05-06 10:30:13+0200 [-] Log opened.
+2014-05-06 10:30:13+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 10:30:13+0200 [-] reactor class: twisted.internet._threadedselect.ThreadedSelectReactor.
+2014-05-06 10:30:13+0200 [-] Site starting on 8087
+2014-05-06 10:30:13+0200 [-] Starting factory <twisted.web.server.Site instance at 0x1178444d0>
+2014-05-06 14:32:02+0200 [-] Log opened.
+2014-05-06 14:32:02+0200 [-] using set_wakeup_fd
+2014-05-06 14:32:02+0200 [-] twistd 12.2.0 (/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python 2.7.5) starting up.
+2014-05-06 14:32:02+0200 [-] reactor class: twisted.internet.selectreactor.SelectReactor.
+2014-05-06 14:32:02+0200 [-] ServerFactory starting on 8080
+2014-05-06 14:32:02+0200 [-] Starting factory <twisted.internet.protocol.ServerFactory instance at 0x1101dd998>
