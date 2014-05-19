@@ -5,19 +5,25 @@
  */
 
 package chatclient;
-
+import org.python.util.PythonInterpreter;
+import org.python.core.*;
 /**
  *
  * @author krismaini
  */
 public class ClientJGUI extends javax.swing.JFrame {
 
-    static Client c;
+//    static Client c;
+    PythonHook hook;
     /**
      * Creates new form ClientJGUI
      */
-    public ClientJGUI() {        
+    public ClientJGUI(){        
         initComponents();
+        PythonInterpreter interpreter = new PythonInterpreter();
+        System.out.println(interpreter.toString());
+        interpreter.exec("from the_script import TwistedClient");
+        hook = (PythonHook)interpreter.get("TwistedClient").__call__().__tojava__(PythonHook.class);
     }
 
     /**
@@ -114,27 +120,28 @@ public class ClientJGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
-        String name = userNameTextField.getText();
-        c = new Client("localhost",8000,name);
-        c.setUsername(name);
-        if(c.connect()){
-            connectedLabel.setText("connected as "+name);
-        } else{
-            //display error
-            messagesTextArea.append("Could not connect.");
-        }
+        hook.svr_con(userNameTextField.getText());
+//        String name = userNameTextField.getText();
+//        c = new Client("localhost",8000,name);
+//        c.setUsername(name);
+//        if(c.connect()){
+//            connectedLabel.setText("connected as "+name);
+//        } else{
+//            //display error
+//            messagesTextArea.append("Could not connect.");
+//        }
     }//GEN-LAST:event_connectButtonActionPerformed
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-        String message = sendMessageTextField.getText();
-        if(c.isConnected()){
-            if(c.sendMessage(message)){
-                messagesTextArea.append("Me: "+message);
-            }
-        } else{
-            //display error
-            messagesTextArea.append("Could not send message. <'"+message+"'>");
-        }
+//        String message = sendMessageTextField.getText();
+//        if(c.isConnected()){
+//            if(c.sendMessage(message)){
+//                messagesTextArea.append("Me: "+message);
+//            }
+//        } else{
+//            //display error
+//            messagesTextArea.append("Could not send message. <'"+message+"'>");
+//        }
     }//GEN-LAST:event_sendButtonActionPerformed
     
     /**

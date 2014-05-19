@@ -17,7 +17,7 @@ public class Client {
     private int port;
     
     private boolean connected;
-    private boolean clientVisible;
+//    private boolean clientVisible;
     
     private ClientJGUI gui = new ClientJGUI();
 
@@ -26,16 +26,16 @@ public class Client {
         this.port = port;
         this.username = username;
         this.connected = false;
-        if(!clientVisible){
-            gui.setVisible(true);
-        }        
+//        if(!clientVisible){
+//            gui.setVisible(true);
+//        }        
     }
     
-    public boolean guiVisible(){
-        gui.setVisible(true);
-        clientVisible = true;
-        return true;
-    }
+//    public boolean guiVisible(){
+//        gui.setVisible(true);
+//        clientVisible = true;
+//        return true;
+//    }
     
     private void display(String msg){
         System.out.println(msg);      // println in console 
@@ -49,13 +49,13 @@ public class Client {
         return connected;
     }
     
-    public boolean start(){
-       if (connect()){
-           connected = true;          
-       }
-       //return true if connection established - else false
-       return connected;
-    }
+//    public boolean start(){
+//       if (connect()){
+//           connected = true;          
+//       }
+//       //return true if connection established - else false
+//       return connected;
+//    }
     
     public boolean connect(){
         
