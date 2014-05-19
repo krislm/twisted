@@ -1,12 +1,14 @@
 from twisted.internet.protocol import Factory
 from twisted.internet import protocol, reactor
 from twisted.protocols.basic import LineReceiver
+from twisted.python import log
 
 class Echo(protocol.Protocol):#, LineReceiver):
     users = [] #List of users, which the server sends to the clients
     connections = {} #dictionary of the TCP connections, with key = username
     def __init__(self, factory):
         self.factory = factory
+    log.startLogging(open('twisted.log', 'w'))
 
     def connectionMade(self):
         self.factory.numConnections += 1
@@ -24,7 +26,7 @@ class Echo(protocol.Protocol):#, LineReceiver):
             self.users.append(message)
             self.connections[message] = self.transport
             print self.connections
-            print "user added"
+            print "user added: "+message
 
             for userkey in self.connections.keys():
                 self.transport = self.connections[userkey]
