@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package chatclient;
-import org.python.util.PythonInterpreter;
+
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 import org.python.core.*;
+import org.python.util.PythonInterpreter;
+
 /**
  *
  * @author krismaini
@@ -15,15 +19,19 @@ public class ClientJGUI extends javax.swing.JFrame {
 
 //    static Client c;
     PythonHook hook;
+
     /**
      * Creates new form ClientJGUI
      */
-    public ClientJGUI(){        
+    public ClientJGUI() {
         initComponents();
         PythonInterpreter interpreter = new PythonInterpreter();
         System.out.println(interpreter.toString());
         interpreter.exec("from the_script import TwistedClient");
-        hook = (PythonHook)interpreter.get("TwistedClient").__call__().__tojava__(PythonHook.class);
+        hook = (PythonHook) interpreter.get("TwistedClient").__call__().__tojava__(PythonHook.class);
+//        while(connectButton.getText().equals("Connect")){
+//            messagesTextArea.append(hook.get_message()+"\n");
+//        }
     }
 
     /**
@@ -35,6 +43,7 @@ public class ClientJGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         userNameTextField = new javax.swing.JTextField();
         connectButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -44,6 +53,8 @@ public class ClientJGUI extends javax.swing.JFrame {
         sendMessageTextField = new javax.swing.JTextField();
         sendButton = new javax.swing.JButton();
         connectedLabel = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,11 +71,6 @@ public class ClientJGUI extends javax.swing.JFrame {
         messagesTextArea.setRows(5);
         jScrollPane1.setViewportView(messagesTextArea);
 
-        onlineUsersList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(onlineUsersList);
 
         sendMessageTextField.setText("...");
@@ -120,30 +126,45 @@ public class ClientJGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
-        hook.svr_con(userNameTextField.getText());
-//        String name = userNameTextField.getText();
-//        c = new Client("localhost",8000,name);
-//        c.setUsername(name);
-//        if(c.connect()){
-//            connectedLabel.setText("connected as "+name);
-//        } else{
-//            //display error
-//            messagesTextArea.append("Could not connect.");
-//        }
+        if (connectButton.getText().equals("Connect")) {
+            hook.svr_con(userNameTextField.getText());
+            DefaultListModel users = new DefaultListModel();
+            if (hook.is_connected()) {
+                connectedLabel.setText("Connected as " + userNameTextField.getText());
+                // Fills online users list 
+                for (int i = 0; i < hook.get_users().size(); i++) {
+                    users.addElement(hook.get_users().get(i));
+                    onlineUsersList.setModel(users);
+                }
+                connectButton.setText("Disconnect");
+            } else {
+                messagesTextArea.append("Could not connect.\n");
+            }
+        }
+        else {
+            if (connectButton.getText().equals("Disconnect")){
+                hook.disconnect();
+                connectButton.setText("Connect");
+            }
+        }
+
     }//GEN-LAST:event_connectButtonActionPerformed
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-//        String message = sendMessageTextField.getText();
-//        if(c.isConnected()){
-//            if(c.sendMessage(message)){
-//                messagesTextArea.append("Me: "+message);
-//            }
-//        } else{
-//            //display error
-//            messagesTextArea.append("Could not send message. <'"+message+"'>");
-//        }
+        String message = sendMessageTextField.getText();
+        String reciever = (String) onlineUsersList.getSelectedValue();
+        if (hook.is_connected()) {
+            if (hook.send_message(message, reciever)) {
+                messagesTextArea.append("Me: " + message+"\n");
+            } else {
+                messagesTextArea.append("Could not send message. <'" + message + "'>\n");
+            }
+        } else {
+            messagesTextArea.append("Connection error occurred!\n");
+            connectedLabel.setText("disconnected...");
+        }
     }//GEN-LAST:event_sendButtonActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -170,20 +191,21 @@ public class ClientJGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ClientJGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new ClientJGUI().setVisible(true);
             }
         });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton connectButton;
     private javax.swing.JLabel connectedLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea messagesTextArea;
